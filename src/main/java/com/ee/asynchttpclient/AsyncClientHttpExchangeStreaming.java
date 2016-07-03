@@ -18,25 +18,25 @@ import org.apache.http.protocol.HttpContext;
  */
 public class AsyncClientHttpExchangeStreaming {
 
-//    public static void main(final String[] args) throws Exception {
-//        CloseableHttpAsyncClient httpclient = HttpAsyncClients.createDefault();
-//        try {
-//            httpclient.start();
-//            Future<Boolean> future = httpclient.execute(
-//                    HttpAsyncMethods.createGet("http://localhost:8080/"),
-//                    new MyResponseConsumer(), null);
-//            Boolean result = future.get();
-//            if (result != null && result.booleanValue()) {
-//                System.out.println("Request successfully executed");
-//            } else {
-//                System.out.println("Request failed");
-//            }
-//            System.out.println("Shutting down");
-//        } finally {
-//            httpclient.close();
-//        }
-//        System.out.println("Done");
-//    }
+    public static void main(final String[] args) throws Exception {
+        CloseableHttpAsyncClient httpclient = HttpAsyncClients.createDefault();
+        try {
+            httpclient.start();
+            Future<Boolean> future = httpclient.execute(
+                    HttpAsyncMethods.createGet("http://localhost:8080/"),
+                    new MyResponseConsumer(), null);
+            Boolean result = future.get();
+            if (result != null && result.booleanValue()) {
+                System.out.println("Request successfully executed");
+            } else {
+                System.out.println("Request failed");
+            }
+            System.out.println("Shutting down");
+        } finally {
+            httpclient.close();
+        }
+        System.out.println("Done");
+    }
 
     static class MyResponseConsumer extends AsyncCharConsumer<Boolean> {
 

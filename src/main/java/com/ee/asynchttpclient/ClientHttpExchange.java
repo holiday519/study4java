@@ -9,7 +9,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
-public class Test {
+public class ClientHttpExchange {
 
 	public static void main(String[] args) throws ClientProtocolException, IOException {
 		HttpGet get = new HttpGet("http://111.235.158.136:8080/bdapi/restful/fog/pxene/getInfoByTag/ctyun_bdcsc_pxene/310b31a8e2ff7b0373dc92a2f917ca79.json");
