@@ -14,7 +14,7 @@ import org.apache.solr.common.SolrInputDocument;
 import org.apache.solr.common.params.ModifiableSolrParams;
 import org.apache.solr.common.params.SolrParams;
 
-public class Solrj {
+public class SolrjDemo {
 	private static final String SOLR_URL = "http://192.168.3.176:8983/solr";
 	
 	public static void main(String[] args) throws SolrServerException, IOException {
