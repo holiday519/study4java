@@ -99,6 +99,10 @@
 			<artifactId>activemq-client</artifactId>
 			<version>5.14.1</version>
 		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
