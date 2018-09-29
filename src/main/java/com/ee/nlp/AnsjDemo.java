@@ -1,4 +1,4 @@
-package com.ee.nlp;
+/*package com.ee.nlp;
 
 import java.util.Collection;
 
@@ -18,3 +18,4 @@ public class AnsjDemo {
 		System.out.println(ToAnalysis.parse(content).getTerms());
 	}
 }
+*/
