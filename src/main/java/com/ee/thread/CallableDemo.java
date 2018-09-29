@@ -1,4 +1,4 @@
-package com.ee.threadpool;
+package com.ee.thread;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -19,6 +19,7 @@ public class CallableDemo implements Callable<String> {
 		ExecutorService executor = Executors.newFixedThreadPool(2);
 		CallableDemo c1 = new CallableDemo("ningyu");
 		CallableDemo c2 = new CallableDemo("zhanglu");
+		
 		FutureTask<String> task1 = new FutureTask<String>(c1);
 		FutureTask<String> task2 = new FutureTask<String>(c2);
 		executor.submit(task1);
