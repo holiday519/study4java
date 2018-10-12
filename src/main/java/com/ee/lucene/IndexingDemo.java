@@ -1,10 +1,12 @@
 package com.ee.lucene;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field.Store;
 import org.apache.lucene.document.StringField;
@@ -15,7 +17,6 @@ import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.IndexableField;
 import org.apache.lucene.index.Term;
-import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
@@ -27,40 +28,36 @@ import org.wltea.analyzer.lucene.IKAnalyzer;
 
 public class IndexingDemo {
 
-	public static void main(String[] args) throws IOException, ParseException {
-//		Analyzer analyzer = new StandardAnalyzer();
+	public static void main(String[] args) throws IOException {
+//		setUp();
+		find("content", "两天");
+	}
+
+	private static void setUp() throws IOException {
 		Analyzer analyzer = new IKAnalyzer();
-		
 		Directory wd = FSDirectory.open(Paths.get("indexDir"));
 		IndexWriterConfig conf = new IndexWriterConfig(analyzer);
 		IndexWriter indexWriter = new IndexWriter(wd, conf);
-		Document doc1 = new Document();
-		IndexableField field1 = new StringField("id", "1", Store.YES);
-		IndexableField title1 = new StringField("title", "java培训零基础开始 从入门到精通", Store.YES);
-		IndexableField content1 = new TextField("content",
-				"java培训，中软国际独创实训模式，三免一终身，学java多项保障让您无后顾之忧。中软国际java培训，全日制教学，真实项目实战，名企定制培训，四个月速成java工程师!", Store.YES);
-		doc1.add(field1);
-		doc1.add(title1);
-		doc1.add(content1);
-		indexWriter.addDocument(doc1);
-
-		Document doc2 = new Document();
-		IndexableField field2 = new StringField("id", "2", Store.YES);
-		IndexableField title2 = new StringField("title", "创业板新低年内上涨股不足百只 抗跌英雄仅剩11只", Store.YES);
-		IndexableField content2 = new TextField("content",
-				"短短两天，创业板再度陷入窘境。昨日创业板指创四年来新低，成交额再度跌破400亿元，与此同时，年内股价上涨的创业板股仅剩64只。", Store.YES);
-		doc2.add(field2);
-		doc2.add(title2);
-		doc2.add(content2);
-		indexWriter.addDocument(doc2);
+		List<String> lines = FileUtils.readLines(new File("lucene/doc.txt"));
+		for (String line : lines) {
+			String[] elems = line.split("\t");
+			Document doc = new Document();
+			IndexableField field = new StringField("id", elems[0], Store.YES);
+			IndexableField title = new StringField("title", elems[1], Store.YES);
+			IndexableField content = new TextField("content", elems[2], Store.NO);
+			doc.add(field);
+			doc.add(title);
+			doc.add(content);
+			indexWriter.addDocument(doc);
+		}
 		indexWriter.close();
-
-		
-		/***************************************************************************************************************/
+	}
+	
+	private static void find(String key, String val) throws IOException {
 		Directory rd = FSDirectory.open(Paths.get("indexDir"));
 		IndexReader indexReader = DirectoryReader.open(rd);
 		IndexSearcher indexSearcher = new IndexSearcher(indexReader);
-		Query query = new TermQuery(new Term("content", "培训"));
+		Query query = new TermQuery(new Term(key, val));
 		TopDocs topDocs = indexSearcher.search(query, 10);
 		System.out.println("总记录数：" + topDocs.totalHits);
 		ScoreDoc[] scoreDocs = topDocs.scoreDocs;
@@ -74,5 +71,4 @@ public class IndexingDemo {
 		}
 		indexReader.close();
 	}
-
 }
