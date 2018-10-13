@@ -1,4 +1,4 @@
-package com.ee.nlp;
+/*package com.ee.nlp;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -25,3 +25,4 @@ public class IkanalyzerDemo {
 	}
 
 }
+*/

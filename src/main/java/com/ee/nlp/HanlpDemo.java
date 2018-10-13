@@ -1,4 +1,4 @@
-package com.ee.nlp;
+/*package com.ee.nlp;
 
 import java.util.List;
 
@@ -13,3 +13,4 @@ public class HanlpDemo {
 	}
 
 }
+*/
