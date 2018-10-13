@@ -1,5 +1,7 @@
 package com.ee.intern;
 
+import java.util.Vector;
+
 public class InternDemo {
 
 	public static void main(String[] args) {
@@ -24,4 +26,5 @@ public class InternDemo {
 		String s4_2 = "test4"; // 常量池中存在该对象的地址，返回该地址
 		System.out.println(s4_1 == s4_2); // true
 	}
+
 }
