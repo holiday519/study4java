@@ -1,7 +1,5 @@
 package com.ee.intern;
 
-import java.util.Vector;
-
 public class InternDemo {
 
 	public static void main(String[] args) {
