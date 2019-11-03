@@ -6,11 +6,11 @@ import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 
 public class GreetInterceptor implements MethodInterceptor {
-	
+
 	public void before() {
 		System.out.println("do something before invoke..");
 	}
-	
+
 	public void after() {
 		System.out.println("do something after invoke..");
 	}
@@ -24,7 +24,7 @@ public class GreetInterceptor implements MethodInterceptor {
 		if (method.getName().equals("sayHello")) {
 			after();
 		}
-		
+
 		return result;
 	}
 
