@@ -1,7 +1,7 @@
 package com.ee.leetcode;
 
 /**
- * 有序数组的 Two Sum
+ * 双指针 - 有序数组的 Two Sum
  * @author Administrator
  *
  */

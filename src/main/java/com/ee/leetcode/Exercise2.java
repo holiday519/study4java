@@ -1,7 +1,7 @@
 package com.ee.leetcode;
 
 /**
- * 两数平方和
+ * 双指针 - 两数平方和
  * @author Administrator
  *
  */
