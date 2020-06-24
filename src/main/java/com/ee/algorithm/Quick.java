@@ -1,5 +1,6 @@
 package com.ee.algorithm;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Quick<T extends Comparable<T>> extends Sorting<T> {
@@ -35,6 +36,18 @@ public class Quick<T extends Comparable<T>> extends Sorting<T> {
 		}
 		exch(a, lo, j);
 		return j;
+	}
+	
+	public static void main(String[] args) {
+		Random random = new Random();
+		Integer[] a = new Integer[100];
+		for (int i=0; i<100; i++) {
+			a[i] = random.nextInt(1000);
+		}
+		System.out.println(Arrays.toString(a));
+		Quick<Integer> quick = new Quick<Integer>();
+		quick.sort(a);
+		System.out.println(Arrays.toString(a));
 	}
 
 }
