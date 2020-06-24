@@ -5,7 +5,6 @@ public class Demo3 {
     public static void main(String[] args) {
         int[] a = {5, 6, 1, 0, 2, 4, 3};
         System.out.println(duplicate(a));
-
     }
 
     public static boolean duplicate(int[] nums) {
