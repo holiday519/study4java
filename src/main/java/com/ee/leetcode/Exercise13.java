@@ -43,7 +43,7 @@ public class Exercise13 {
 		return maxArea;
 	}
 	
-	public static int getIslandArea(int[][] grid, int m, int n, int M, int N) {
+	private static int getIslandArea(int[][] grid, int m, int n, int M, int N) {
 		int area = 0;
 		int[][] steps = {{1, 0}, {0, -1}, {0, 1}, {-1, 0}};
 		Deque<Point> stack = new ArrayDeque<Point>();
@@ -74,7 +74,7 @@ public class Exercise13 {
 		return area;
 	}
 	
-	public static class Point {
+	private static class Point {
 		public int i;
 		public int j;
 		public Point(int i, int j) {
