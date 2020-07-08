@@ -1,4 +1,4 @@
-package com.ee.algorithm;
+package com.ee.algorithm.sort;
 
 import java.util.Arrays;
 import java.util.Random;

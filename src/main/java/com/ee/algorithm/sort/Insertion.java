@@ -1,4 +1,4 @@
-package com.ee.algorithm;
+package com.ee.algorithm.sort;
 
 public class Insertion<T extends Comparable<T>> extends Sorting<T> {
 

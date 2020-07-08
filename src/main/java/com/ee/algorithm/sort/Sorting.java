@@ -1,4 +1,4 @@
-package com.ee.algorithm;
+package com.ee.algorithm.sort;
 
 public abstract class Sorting<T extends Comparable<T>> {
 	

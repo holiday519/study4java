@@ -1,4 +1,4 @@
-package com.ee.algorithm;
+package com.ee.algorithm.tree;
 
 public class RedBlackTree {
 

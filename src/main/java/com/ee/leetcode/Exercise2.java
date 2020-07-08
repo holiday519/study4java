@@ -8,7 +8,7 @@ package com.ee.leetcode;
 public class Exercise2 {
 
 	public static void main(String[] args) {
-		System.out.println(judgeSquareSum(5));
+		System.out.println(judgeSquareSum(9));
 	}
 	
 	public static boolean judgeSquareSum(int target) {
