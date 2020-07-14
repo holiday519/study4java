@@ -148,9 +148,9 @@ public class BST<Key extends Comparable<Key>, Value> {
                 Node t = stack.getFirst();
                 Node left = t.left;
                 Node right = t.right;
-                if (left != null && n != t.left && n != t.right) {
+                if (left != null && n != left && n != right) {
                     stack.addFirst(left);
-                } else if (right != null && n != t.right) {
+                } else if (right != null && n != right) {
                     stack.addFirst(right);
                 } else {
                     n = stack.removeFirst();
