@@ -1,11 +1,11 @@
-package com.ee.threadpool;
+package com.ee.thread;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class LockDemo {
+public class LockConditionDemo {
 
     private Lock lock = new ReentrantLock();
     private Condition condition = lock.newCondition();
@@ -35,7 +35,7 @@ public class LockDemo {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        LockDemo demo = new LockDemo();
+        LockConditionDemo demo = new LockConditionDemo();
         new Thread(() -> {
             demo.sharedMethod("ningyu");
         }).start();
