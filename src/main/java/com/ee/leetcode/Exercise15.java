@@ -11,32 +11,32 @@ public class Exercise15 {
         }
     }
 
-//    public static Node reverse(Node node) {
-//        return reverse(null, node);
-//    }
-//
-//
-//    public static Node reverse(Node node, Node nextNode) {
-//        Node nextNextNode = nextNode.nextNode;
-//        nextNode.nextNode = node;
-//        if (nextNextNode == null) {
-//            return nextNode;
-//        } else {
-//            return reverse(nextNode, nextNextNode);
-//        }
-//    }
-
     public static Node reverse(Node node) {
-        Node lastNode = null;
-        while (node != null) {
-            Node nextNode = node.nextNode;
-            node.nextNode = lastNode;
-            lastNode = node;
-            node = nextNode;
-        }
-
-        return lastNode;
+        return reverse(null, node);
     }
+
+
+    public static Node reverse(Node node, Node nextNode) {
+        Node nextNextNode = nextNode.nextNode;
+        nextNode.nextNode = node;
+        if (nextNextNode == null) {
+            return nextNode;
+        } else {
+            return reverse(nextNode, nextNextNode);
+        }
+    }
+
+//    public static Node reverse(Node node) {
+//        Node lastNode = null;
+//        while (node != null) {
+//            Node nextNode = node.nextNode;
+//            node.nextNode = lastNode;
+//            lastNode = node;
+//            node = nextNode;
+//        }
+//
+//        return lastNode;
+//    }
 
     public static void main(String[] args) {
         Node node5 = new Node(5, null);
