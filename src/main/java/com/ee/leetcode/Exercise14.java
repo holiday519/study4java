@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
+/**
+ * 填充封闭区域
+ * @author Administrator
+ *
+ */
 public class Exercise14 {
 
 	public static void main(String[] args) {

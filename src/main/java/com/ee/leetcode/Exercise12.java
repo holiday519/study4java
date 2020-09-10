@@ -11,7 +11,7 @@ import java.util.Deque;
 public class Exercise12 {
 
 	public static void main(String[] args) {
-		System.out.println(numSquares(13));
+		System.out.println(numSquares(12));
 	}
 	
 	public static int numSquares(int n) {

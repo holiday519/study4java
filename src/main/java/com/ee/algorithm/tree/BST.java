@@ -160,6 +160,22 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
     }
 
+    // 层序遍历
+    public void floorOrder(Node n) {
+    	if (n != null) {
+    		Deque<Node> queue = new ArrayDeque<Node>();
+    		queue.addLast(n);
+    		while (!queue.isEmpty()) {
+    			Node root = queue.removeFirst();
+    			System.out.println(root.val);
+    			Node left = root.left;
+    			Node right = root.right;
+    			if (left != null) queue.addLast(left);
+    			if (right != null) queue.addLast(right);
+    		}
+    	}
+    }
+    
     public static void main(String[] args) {
         BST<Integer, String> demo = new BST<>();
         demo.put(3,"a");
@@ -171,7 +187,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 
 //        System.out.println(demo.height());
 //        System.out.println(demo.size());
-        demo.postOrder(demo.root);
+        demo.floorOrder(demo.root);
     }
 
 }
